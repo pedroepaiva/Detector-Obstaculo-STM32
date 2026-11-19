@@ -34,22 +34,20 @@ Todas as etapas serão registradas por meio de commits, permitindo acompanhar a 
 
 ### 1.3 Diagrama de blocos
 
+
 ```mermaid
 flowchart TD
-    F["Entrada 5 V, proteção e regulação"] --> M["Black Pill STM32F411"]
-
-    S["Sensor HC-SR04"] <-->|"TRIG / ECHO"| M
-    B["2 botões"] -->|"GPIO"| M
-
-    M -->|"GPIO"| L["3 LEDs"]
-    M -->|"GPIO"| V["Driver + motor vibratório"]
-    M -->|"GPIO"| Z["Driver + buzzer"]
-
-    M <-->|"UART 3,3 V"| U["Conversor USB-UART"]
-    U <-->|"USB"| P["Computador"]
-
-    D["ST-Link / SWD"] <--> M
+    F["Alimentação 5V"] --> M["STM32F411 Black Pill"]
+    S["Sensor HC-SR04"] --> M
+    B["Dois botões"] --> M
+    M --> L["Três LEDs"]
+    M --> V["Motor vibratório"]
+    M --> Z["Buzzer"]
+    M --> U["Conversor USB-UART"]
+    U --> P["Computador"]
+    D["ST-Link SWD"] --> M
 ```
+
 
 ### 1.4 Funcionamento planejado
 
